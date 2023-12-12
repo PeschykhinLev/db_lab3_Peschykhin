@@ -1,15 +1,13 @@
 CREATE TABLE Meal
 (
   item_id SERIAL PRIMARY KEY,
-  item_name VARCHAR(100) NOT NULL,
-  PRIMARY KEY (item_id)
+  item_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Category
 (
   category_id SERIAL PRIMARY KEY,
-  category_name VARCHAR(100) NOT NULL,
-  PRIMARY KEY (category_id)
+  category_name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Meal_Category
@@ -61,4 +59,3 @@ CREATE TABLE Serving_Size_Table
   item_id INT NOT NULL,
   PRIMARY KEY (item_id),
   FOREIGN KEY (item_id) REFERENCES Meal(item_id)
-);
