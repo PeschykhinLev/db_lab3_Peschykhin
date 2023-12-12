@@ -2,13 +2,14 @@ CREATE TABLE Meal
 (
   item_id SERIAL PRIMARY KEY,
   item_name VARCHAR(100) NOT NULL,
-  serving_size INT NOT NULL
+  PRIMARY KEY (item_id)
 );
 
 CREATE TABLE Category
 (
   category_id SERIAL PRIMARY KEY,
-  category_name VARCHAR(100) NOT NULL
+  category_name VARCHAR(100) NOT NULL,
+  PRIMARY KEY (category_id)
 );
 
 CREATE TABLE Meal_Category
@@ -48,6 +49,15 @@ CREATE TABLE Daily_Values_on_the_Nutrition
   Vitamin_C_Daily_Percentage INT NOT NULL,
   Calcium_Daily_Percentage INT NOT NULL,
   Iron_Daily_Percentage INT NOT NULL,
+  item_id INT NOT NULL,
+  PRIMARY KEY (item_id),
+  FOREIGN KEY (item_id) REFERENCES Meal(item_id)
+);
+
+CREATE TABLE Serving_Size_Table
+(
+  Ounces INT NOT NULL,
+  Grams INT NOT NULL,
   item_id INT NOT NULL,
   PRIMARY KEY (item_id),
   FOREIGN KEY (item_id) REFERENCES Meal(item_id)
