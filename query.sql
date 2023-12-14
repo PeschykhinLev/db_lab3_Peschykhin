@@ -9,7 +9,8 @@ SELECT Category.category_name, Nutritional_Information.Calories
 FROM Category
 JOIN Meal_Category ON Category.category_id = Meal_Category.category_id
 JOIN Nutritional_Information ON Meal_Category.item_id = Nutritional_Information.item_id
-WHERE Nutritional_Information.Calories > 100;
+WHERE Nutritional_Information.Calories > 100
+ORDER BY Calories;
 
 -- Назва страви, та впорядковане порівняння (за зростаннія) її кількості калорій та % від денної форми жирів
 SELECT Category.category_name, Nutritional_Information.Calories, Daily_Values_on_the_Nutrition.Total_Fat_Daily_Percentage
